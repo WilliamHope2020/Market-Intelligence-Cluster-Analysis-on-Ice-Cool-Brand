@@ -1,0 +1,41 @@
+consumption,consumption_reason,brand_frequency,brand_switching,flitered_brandswitch,usual_brand,price_importantce,discount_importance,stu_price_sense,filtered_stu_price_sense,first_hear,familiarity,filtered_familiarity,marketing,filtered_marketing,influence_marketing,package_design,visua_appeal,info_packaging,sweetness,filtered_sweetness,natural_ingre,with_coconut,first_word,unique_values,filtered_unique_values,standout,age,gender,occupation,price_sense,brand_aware,packaging,taste
+5,2,0,4,4,2,4,3,1,1,1,2,,0,0,2,3,1,4,4,4,4,3,Refreshing,0,0,"Unique health benefits, Taste, Price",1,0,1,2.67,0.67,2.67,3.67
+6,4,0,4,4,1,4,3,1,1,0,0,0,2,,2,3,4,4,0,,5,2,Refreshing ,2,,"Unique health benefits, Taste, Price",1,1,1,2.67,0.67,3.67,2.33
+5,3,0,0,,2,4,4,1,1,0,1,1,0,0,2,3,2,2,0,,5,2,Cool,0,0,"Taste, Packaging design, Price",1,0,1,3,1,2.33,2.33
+5,2,2,3,3,2,4,4,1,1,0,2,,0,0,3,4,2,3,5,5,5,3,NA,0,0,Packaging design,1,0,1,3,1,3,4.33
+5,2,0,3,3,1,4,2,1,1,0,2,,2,,1,4,2,4,4,4,4,3,NA,0,0,"Taste, Packaging design, Price",1,1,1,2.33,0.33,3.33,3.67
+4,3,1,3,3,1,4,3,1,1,0,0,0,2,,4,4,3,4,3,3,4,3,Refreshing,0,0,"Taste, Packaging design, Price",1,1,1,2.67,1.33,3.67,3.33
+5,3,2,4,4,2,3,4,1,1,0,0,0,0,0,1,3,2,4,4,4,4,3,water flask,0,0,"Taste, Packaging design, Price",1,0,1,2.67,0.33,3,3.67
+0,0,0,0,,5,4,4,1,1,0,0,0,0,0,4,4,2,4,2,2,4,3,Refreshing,2,,"Taste, Price, Promotions/Offers",1,1,1,3,1.33,3.33,3
+5,2,0,3,3,2,3,2,1,1,0,2,,0,0,2,5,1,1,0,,2,2,NA,0,0,"Taste, Packaging design, Price",1,1,1,2,0.67,2.33,1.33
+4,4,0,4,4,3,4,4,1,1,1,1,1,0,0,5,4,1,5,3,3,5,3,Cheap,0,0,"Price, Promotions/Offers",1,1,1,3,2,3.33,3.67
+5,3,0,4,4,1,4,5,1,1,0,2,,0,0,5,4,3,2,0,,4,2,Retail Ice,0,0,"Unique health benefits, Packaging design, Price",1,1,1,3.33,1.67,3,2
+6,2,2,4,4,3,4,3,0,0,0,0,0,0,0,5,4,2,5,4,4,5,3,soda,0,0,"Unique health benefits, Price, Brand values/ethics",1,1,2,2.33,1.67,3.67,4
+0,0,0,0,,4,5,4,1,1,0,2,,2,,3,2,4,1,0,,1,2,Freezer/ice brand?,0,0,I dont know,1,1,1,3.33,1,2.33,1
+5,3,0,0,,4,5,5,1,1,0,1,1,0,0,3,5,4,4,0,,4,3,Cool,0,0,"Taste, Packaging design, Price",2,0,0,3.67,1.33,4.33,2.33
+4,4,0,4,4,3,4,4,1,1,1,0,0,0,0,4,3,2,5,3,3,5,3,Nice,0,0,"Unique health benefits, Price, Promotions/Offers",1,1,1,3,1.33,3.33,3.67
+4,2,1,5,5,3,4,4,2,,1,2,,0,0,4,4,3,5,4,4,4,2,Refreshing,0,0,"Unique health benefits, Taste, Price",2,1,0,2.67,1.33,4,3.33
+1,4,2,4,4,3,5,5,1,1,1,2,,0,0,4,3,2,5,3,3,4,3,Healthy,0,0,Unique health benefits,1,0,1,3.67,1.33,3.33,3.33
+1,2,1,4,4,0,5,5,1,1,1,0,0,0,0,5,3,3,4,3,3,3,2,Cheap,0,0,"Price, Promotions/Offers",1,0,1,3.67,1.67,3.33,2.67
+6,2,0,5,5,3,4,4,1,1,1,0,0,0,0,4,4,1,5,3,3,4,2,Cheap,0,0,"Unique health benefits, Taste, Price",1,1,1,3,1.33,3.33,3
+6,2,2,5,5,5,5,5,1,1,1,0,0,2,,4,4,2,5,3,3,5,3,Refreshing,0,0,"Unique health benefits, Brand values/ethics, Refreshing ",1,1,1,3.67,1.33,3.67,3.67
+4,4,0,4,4,3,4,4,1,1,1,0,0,2,,4,3,2,5,3,3,3,3,Healthy,2,,"Unique health benefits, Taste, Packaging design",1,0,1,3,1.33,3.33,3
+1,2,1,5,5,0,4,3,1,1,1,0,0,2,,3,5,1,5,3,3,4,3,Cheap ,2,,"Unique health benefits, Price",1,1,1,2.67,1,3.67,3.33
+1,4,0,5,5,3,4,4,1,1,1,1,1,0,0,3,4,1,5,4,4,5,3,Refreshing,0,0,"Unique health benefits, Packaging design, Price",1,1,1,3,1.33,3.33,4
+6,2,0,4,4,0,4,3,1,1,1,0,0,1,1,2,4,3,4,3,3,3,3,Refreshing,2,,"Unique health benefits, Taste, Price",1,0,1,2.67,1,3.67,3
+1,2,2,3,3,3,4,3,1,1,2,0,0,1,1,4,4,4,5,3,3,5,3,Cool,1,1,"Unique health benefits, Taste, Price",4,1,5,2.67,1.67,4.33,3.67
+1,2,2,3,3,0,4,4,1,1,1,0,0,0,0,3,4,3,4,3,3,4,3,Cheap,1,1,"Unique health benefits, Taste, Price",1,0,1,3,1,3.67,3.33
+3,4,1,2,2,1,5,4,1,1,1,0,0,1,1,5,4,4,5,4,4,3,3,Cheap/ refreshing,1,1,"Taste, Price, Brand values/ethics",2,1,4,3.33,2,4.33,3.33
+6,2,0,4,4,0,4,4,1,1,0,0,0,2,,3,3,3,3,3,3,4,3,Cold,0,0,"Price, Promotions/Offers",1,0,1,3,1,3,3.33
+5,2,2,4,4,0,5,4,1,1,1,0,0,0,0,4,3,2,4,4,4,4,2,classic brand,1,1,"Unique health benefits, Taste, Price",1,0,1,3.33,1.33,3,3.33
+6,2,1,3,3,2,2,1,2,,1,2,,1,1,3,3,2,4,3,3,3,3,Refreshing,2,,"Unique health benefits, Taste, Packaging design",3,1,2,1,1.33,3,3
+4,2,2,3,3,1,4,3,0,0,2,0,0,0,0,3,3,3,3,3,3,3,2,Drinks,1,1,"Taste, Packaging design, Promotions/Offers",3,0,0,2.33,1,3,2.67
+4,4,0,4,4,0,5,4,1,1,1,2,,0,0,3,4,3,4,3,3,5,2,Coconut,2,,Price,3,1,4,3.33,1,3.67,3.33
+4,2,1,2,2,1,4,4,1,1,4,1,1,0,0,4,3,2,3,2,2,5,3,NA,1,1,Taste,1,0,1,3,1.67,2.67,3.33
+2,4,2,4,4,0,4,5,1,1,1,0,0,0,0,4,5,3,5,5,5,5,3,sweet,0,0,"Unique health benefits, Packaging design, Price",1,1,1,3.33,1.33,4.33,4.33
+2,4,1,3,3,3,5,5,1,1,1,0,0,0,0,5,4,2,5,4,4,4,3,chunks of coconut ,0,0,"Unique health benefits, Taste, Packaging design",1,1,1,3.67,1.67,3.67,3.67
+2,2,2,4,4,3,4,4,1,1,1,0,0,0,0,4,5,1,5,4,4,5,2,Cool,0,0,"Taste, Packaging design, Price",1,1,1,3,1.33,3.67,3.67
+5,2,2,4,4,2,2,2,1,1,0,1,1,0,0,2,3,2,1,0,,4,1,Refreshing ,2,,"Taste, Price, Promotions/Offers",1,1,1,1.67,1,2,1.67
+4,4,1,4,4,0,4,4,1,1,0,0,0,0,0,1,4,3,5,0,,3,1,Refreshing,2,,"Packaging design, Price, Promotions/Offers",1,0,1,3,0.33,4,1.33
+3,4,2,4,4,0,5,5,1,1,1,0,0,0,0,4,5,2,5,4,4,4,3,Healthy,0,0,"Unique health benefits, Packaging design, Price",1,1,1,3.67,1.33,4,3.67
+4,2,1,4,4,0,5,5,1,1,1,0,0,0,0,3,3,3,3,5,5,5,1,Refreshing,0,0,"Taste, Price, Promotions/Offers",1,0,1,3.67,1,3,3.67
