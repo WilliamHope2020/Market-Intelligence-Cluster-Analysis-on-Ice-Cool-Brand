@@ -1,0 +1,644 @@
+---
+title: "MI Research Survey"
+author: "William Hope"
+date: "2023-10-27"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(plm)
+library(AER)
+library(stargazer)
+library(ggplot2)
+library(stats)
+library(gplots)
+library(combinat)
+library(car)
+library(mediation)
+```
+
+# Setting the working directory
+```{r}
+# Read the CSV file and store it in a data frame
+data <- read.csv("IceCool_MI.csv")
+
+# View the first few rows of the data frame
+head(data)
+
+```
+
+# Summary Stats and Distribution
+
+## Q1 - Consumption
+```{r}
+# Analysis Related to Consumption Variable
+
+summary(data$consumption)
+
+## This histogram shows the distribution for values for question 1 data, it relates to the consumption
+hist(data$consumption, 
+     main = "Distribution of consumption variable",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+
+```
+
+
+
+## Q2 - consumption_reason
+```{r}
+# Analysis Related to consumption_reason Variable
+
+summary(data$consumption_reason)
+
+## This histogram shows the distribution for values for question 2 data, it relates to the consumption_reason reasons
+hist(data$consumption_reason, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+
+```
+
+
+
+## Q3 - brand_frequency
+```{r}
+# Analysis Related to brand_frequency Variable
+
+summary(data$brand_frequency)
+
+
+# This histogram shows the distribution for values for question 3 data, it relates to the brand_frequency
+hist(data$brand_frequency, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+
+```
+
+## Q4 - brand_switching
+```{r}
+# Analysis Related to brand_switching Variable
+
+## Flitering out the "No Usual Brand" answers for more accurate results
+filtered_brand_switching <- data$brand_switching[data$brand_switching != 0]
+
+summary(filtered_brand_switching)
+
+# This histogram shows the distribution for values for question 4 data, it relates to the brand_switching
+hist(filtered_brand_switching, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(filtered_brand_switching, mu = 3, alternative = "less")
+t.test(filtered_brand_switching, mu = 3, alternative = "greater")
+
+```
+
+
+## Q5 - usual_brand
+```{r}
+# Analysis Related to usual_brand Variable
+
+summary(data$usual_brand)
+
+# This histogram shows the distribution for values for question 3 data, it relates to the usual_brand
+hist(data$usual_brand, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+
+```
+
+
+## Q6 - price_importantce
+```{r}
+# Analysis Related to price Variable
+
+summary(data$price_importantce)
+
+# This histogram shows the distribution for values for question 3 data, it relates to the price
+hist(data$price_importantce, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(data$price_importantce, mu = 3, alternative = "less")
+t.test(data$price_importantce, mu = 3, alternative = "greater")
+t.test(data$price_importantce, mu = 3)
+
+```
+
+It is clear gender does not play a role in the price importance. It is also relevant to suggest that discounts play a huge importance to price importance. This means as price sensitivity increases, discount importance also increases.
+
+## Q7 - discount_importance
+```{r}
+# Analysis Related to discount Variable
+
+summary(data$discount_importance)
+
+# This histogram shows the distribution for values for question 3 data, it relates to the brand_frequency
+hist(data$discount_importance, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(data$discount_importance, mu = 3, alternative = "less")
+t.test(data$discount_importance, mu = 3, alternative = "greater")
+t.test(data$discount_importance, mu = 3)
+
+```
+
+
+
+## Q8 - stu_price_sense
+```{r}
+# Analysis Related to stu_price_sense Variable
+
+## Flitering out the "Unsure" answers for more accurate results
+filtered_stu_price_sense <- data$stu_price_sense[data$stu_price_sense != 2]
+
+summary(data$filtered_stu_price_sense)
+summary(data$stu_price_sense)
+summary(filtered_stu_price_sense)
+
+hist(filtered_stu_price_sense, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(data$filtered_stu_price_sense, mu = 1)
+t.test(data$filtered_stu_price_sense, mu = 0)
+
+```
+
+
+
+## Q9 - first_hear
+```{r}
+# Analysis Related to first_hear Variable
+
+summary(data$first_hear)
+
+hist(data$first_hear, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+```
+
+
+
+## Q10 - familiarity
+```{r}
+# Analysis Related to familiarity Variable
+
+summary(data$filtered_familiarity)
+
+hist(data$filtered_familiarity, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(data$filtered_familiarity, mu = 0, alternative = "greater")
+t.test(data$filtered_familiarity, mu = 1)
+t.test(data$filtered_familiarity, mu = 0)
+```
+
+
+
+## Q11 - marketing
+```{r}
+# Analysis Related to marketing Variable
+
+filtered_marketing <- data$marketing[data$marketing != 2]
+
+summary(filtered_marketing)
+
+hist(filtered_marketing, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(filtered_marketing, mu = 1)
+t.test(filtered_marketing, mu = 1, alternative = "less")
+t.test(filtered_marketing, mu = 0)
+
+
+```
+
+
+
+## Q12 - influence_marketing
+```{r}
+# Analysis Related to influence_marketing Variable
+
+summary(data$influence_marketing)
+
+hist(data$influence_marketing, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(data$influence_marketing, mu = 3, alternative = "less")
+t.test(data$influence_marketing, mu = 3, alternative = "greater")
+t.test(data$influence_marketing, mu = 3)
+
+```
+
+
+
+## Q13 - package_design
+```{r}
+# Analysis Related to package_design Variable
+
+summary(data$package_design)
+
+hist(data$package_design, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(data$package_design, mu = 3, alternative = "less")
+t.test(data$package_design, mu = 3, alternative = "greater")
+t.test(data$package_design, mu = 3)
+
+
+```
+
+
+
+## Q14 - visua_appeal
+```{r}
+# Analysis Related to visua_appeal Variable
+
+summary(data$visua_appeal)
+
+hist(data$visua_appeal, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(data$visua_appeal, mu = 3, alternative = "less")
+t.test(data$visua_appeal, mu = 3, alternative = "greater")
+t.test(data$visua_appeal, mu = 3)
+
+```
+
+
+
+## Q15 - info_packaging
+```{r}
+# Analysis Related to info_packaging Variable
+
+summary(data$info_packaging)
+
+hist(data$info_packaging, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(data$info_packaging, mu = 3, alternative = "less")
+t.test(data$info_packaging, mu = 3, alternative = "greater")
+t.test(data$info_packaging, mu = 3)
+
+
+```
+
+
+
+## Q16 - sweetness
+```{r}
+# Analysis Related to sweetness Variable
+
+filtered_sweetness <- data$sweetness[data$sweetness != 0]
+
+summary(data$sweetness)
+
+hist(filtered_sweetness, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(filtered_sweetness, mu = 3, alternative = "less")
+t.test(filtered_sweetness, mu = 3, alternative = "greater")
+t.test(filtered_sweetness, mu = 3)
+
+
+```
+
+
+
+## Q17 - natural_ingre
+```{r}
+# Analysis Related to natural_ingre Variable
+
+summary(data$natural_ingre)
+
+hist(data$natural_ingre, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(data$natural_ingre, mu = 3, alternative = "less")
+t.test(data$natural_ingre, mu = 3, alternative = "greater")
+t.test(data$natural_ingre, mu = 3)
+
+
+```
+
+
+
+## Q18 - with_coconut
+```{r}
+# Analysis Related to with_coconut Variable
+
+summary(data$with_coconut)
+
+hist(data$with_coconut, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(data$with_coconut, mu = 2, alternative = "less")
+t.test(data$with_coconut, mu = 2, alternative = "greater")
+t.test(data$with_coconut, mu = 2)
+
+```
+
+
+
+## Q20 - unique_values
+```{r}
+# Analysis Related to unique_values Variable
+
+filtered_unique_values <- data$unique_values[data$unique_values != 2]
+
+summary(data$filtered_unique_values)
+
+hist(data$filtered_unique_values, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+t.test(filtered_unique_values, mu = 1)
+t.test(filtered_unique_values, mu = 0)
+t.test(filtered_unique_values, mu = 1, alternative = "less")
+t.test(filtered_unique_values, mu = 1, alternative = "greater")
+
+
+```
+
+
+
+## Q22 - age
+```{r}
+# Analysis Related to age Variable
+
+summary(data$age)
+
+hist(data$age, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+
+```
+
+
+
+## Q23 - gender
+```{r}
+# Analysis Related to gender Variable
+
+summary(data$gender)
+
+hist(data$gender, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+
+```
+
+## Q24 - occupation
+```{r}
+# Analysis Related to occupation Variable
+
+summary(data$occupation)
+
+hist(data$occupation, 
+     main = "Distribution of Values",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+
+```
+
+## Regression Analysis Among Variables
+```{r}
+# Influential Marketing Regressions
+fit1 <- lm(data$influence_marketing ~ data$filtered_marketing, data=data)
+               se_fit1 <- sqrt(diag(vcovHC(fit1)))
+               
+fit2 <- lm(data$influence_marketing ~ data$price_importantce + data$gender, data=data)
+               se_fit2 <- sqrt(diag(vcovHC(fit2)))
+               
+fit3 <- lm(data$influence_marketing ~ data$price_importantce + data$gender + data$filtered_unique_values, data=data)
+               se_fit3 <- sqrt(diag(vcovHC(fit3)))
+
+fit4 <- lm(data$influence_marketing ~ data$discount_importance + data$gender + data$filtered_unique_values, data=data)
+               se_fit4 <- sqrt(diag(vcovHC(fit4)))
+               
+stargazer(fit1, fit2, fit3, fit4, se=list(se_fit1, se_fit2, se_fit3, se_fit4), header=FALSE, float=FALSE, type = "text", digits=4, model.numbers=FALSE)
+
+stargazer(fit3, fit4, se=list(se_fit3, se_fit4), header=FALSE, float=FALSE, type = "text", digits=4, model.numbers=FALSE)
+
+```
+
+
+```{r}
+# Packaging Variables Regression Models
+fit_pack <- lm(data$package_design~data$gender, data=data)
+se1_fit_pack <- sqrt(diag(vcovHC(fit_pack)))
+
+fit_pack2 <- lm(data$info_packaging~data$brand_switching+data$consumption_reason, data=data)
+se1_fit_pack2 <- sqrt(diag(vcovHC(fit_pack2)))
+
+fit_pack3 <- lm(data$visua_appeal~data$brand_switching+data$age, data=data)
+se1_fit_pack3 <- sqrt(diag(vcovHC(fit_pack3)))
+
+stargazer(fit_pack, fit_pack2, fit_pack3, se=list(se1_fit_pack, se1_fit_pack2, se1_fit_pack3), header=FALSE, float=FALSE, type = "text", digits=4, model.numbers=FALSE)
+
+```
+
+
+```{r}
+# Regressing Price_sense against Brand_Aware, Packaging, and Taste
+fit_price_sense <- lm(data$price_sense~data$brand_aware+data$packaging+data$taste, data=data)
+se1_fit_price_sense <- sqrt(diag(vcovHC(fit_price_sense)))
+
+# Regressing Price_sense against Brand_Aware, Packaging, and Gender
+fit_gender_price <- lm(data$price_sense~data$brand_aware+data$packaging+data$gender, data=data)
+se1_fit_gender_price <- sqrt(diag(vcovHC(fit_gender_price)))
+
+# Regressing Price_sense against Brand_Aware, Packaging, Gender, Age
+fit_apgi <- lm(data$price_sense~data$brand_aware+data$packaging+data$gender+data$age, data=data)
+se1_fit_apgi <- sqrt(diag(vcovHC(fit_apgi)))
+
+# Displaying Regression Results
+stargazer(fit_price_sense, fit_gender_price, fit_apgi, se=list(se1_fit_price_sense, se1_fit_gender_price, se1_fit_apgi), header=FALSE, float=FALSE, type = "text", digits=4, model.numbers=FALSE)
+```
+
+
+```{r}
+
+# Get the names of numeric variables
+numeric_vars <- names(data)[sapply(data, is.numeric)]
+
+# Create a list to store correlation results
+correlation_results <- list()
+
+# Loop through all unique combinations of variables and calculate correlations
+for (i in 1:(length(numeric_vars) - 1)) {
+  for (j in (i + 1):length(numeric_vars)) {
+    var1 <- numeric_vars[i]
+    var2 <- numeric_vars[j]
+    
+    # Calculate the correlation for the pair of variables
+    correlation_result <- cor(data[[var1]], data[[var2]], use = "pairwise.complete.obs")
+    
+    # Store the correlation result
+    correlation_results[[paste(var1, var2, sep = "_")]] <- correlation_result
+  }
+}
+
+# Print strong positive correlation results (magnitudes between 0.7 and 0.9)
+for (var_pair in names(correlation_results)) {
+  correlation_value <- correlation_results[[var_pair]]
+  if (!is.na(correlation_value) && abs(correlation_value) >= 0.6 && abs(correlation_value) <= 0.99) {
+    cat("Strong correlation between", var_pair, "is", correlation_value, "\n")
+  }
+}
+
+# Print moderate positive correlation results (magnitudes between 0.5 and 0.7)
+for (var_pair in names(correlation_results)) {
+  correlation_value <- correlation_results[[var_pair]]
+  if (!is.na(correlation_value) && abs(correlation_value) >= 0.31 && abs(correlation_value) <= 0.59) {
+    cat("Moderate correlation between", var_pair, "is", correlation_value, "\n")
+  }
+}
+
+# Print weak positive correlation results (magnitudes between 0.2 and 0.49)
+for (var_pair in names(correlation_results)) {
+  correlation_value <- correlation_results[[var_pair]]
+  if (!is.na(correlation_value) && abs(correlation_value) >= 0 && abs(correlation_value) <= 0.24) {
+    cat("Weak correlation between", var_pair, "is", correlation_value, "\n")
+  }
+}
+
+
+```
+
+
+# Testing for Multicollinearity
+```{r}
+
+# Calculate VIF for the model
+vif_results <- vif(fit_gender_price)
+vif_results
+
+# Calculate tolerance
+tolerance <- 1 / vif_results
+tolerance
+
+# Create a correlation matrix for predictor variables
+cor_matrix <- cor(data[, c("age", "gender", "packaging")])
+
+# Calculate eigenvalues
+eigenvalues <- eigen(cor_matrix)$values
+eigenvalues
+
+# Perform PCA on predictor variables
+pca_result <- prcomp(data[, c("age", "gender", "packaging")])
+summary(pca_result)
+
+# Mediation Analysis
+
+model <- lm(price_sense ~ packaging + age + gender, data = data)
+mediator_model <- lm(packaging ~ price_sense + age + gender, data = data)
+mediation_result <- mediate(model, mediator_model, treat = "price_sense", mediator = "packaging", control = c("age", "gender"))
+summary(mediation_result)
+
+
+```
